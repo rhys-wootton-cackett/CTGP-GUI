@@ -9,7 +9,7 @@
         ui:WindowHelper.UseModernWindowStyle="True"
         Title="CTGP Revolution Setup" Height="500" Width="600" ResizeMode="NoResize">
     <Grid>
-        <Frame x:Name="FrmMain" Source="Pages/Welcome.xaml" Height="430" VerticalAlignment="Top" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="FrmMain" Source="Pages/Welcome.xaml" Height="410" VerticalAlignment="Top" NavigationUIVisibility="Hidden" Margin="20,10,20,0"/>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" >
             <Button x:Name="BtnBackward" Content="Back" Margin="0,0,10,0" Visibility="Hidden" Click="BtnBackward_Click"/>
             <Button x:Name="BtnForward" Content="Start installation" Style="{StaticResource AccentButtonStyle}" Click="BtnForward_Click" />

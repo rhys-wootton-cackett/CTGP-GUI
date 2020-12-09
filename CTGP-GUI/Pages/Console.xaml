@@ -1,0 +1,19 @@
+﻿<Page x:Class="CTGP_GUI.Pages.Console"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
+      mc:Ignorable="d"
+      Foreground="{DynamicResource SystemControlPageTextBaseHighBrush}"
+      d:DesignHeight="410" d:DesignWidth="580"
+      Title="Welcome">
+    <Grid>
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+            <TextBlock Text="Console Selection" Style="{StaticResource TitleTextBlockStyle}"/>
+            <TextBlock Text="Do you want to install CTGP Revolution on a Wii or Wii U using vWii?" Style="{StaticResource BodyTextBlockStyle}" Margin="0,0,0,10"/>
+            <RadioButton x:Name="RadWii" GroupName="console" Content="Wii" Checked="ConsoleRadioButtonChecked"></RadioButton>
+            <RadioButton x:Name="RadWiiU" GroupName="console" Content="Wii U using vWii" Checked="ConsoleRadioButtonChecked"></RadioButton>
+        </StackPanel>
+    </Grid>
+</Page>

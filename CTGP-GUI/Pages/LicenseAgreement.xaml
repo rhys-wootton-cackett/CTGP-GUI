@@ -6,12 +6,19 @@
       xmlns:ui="http://schemas.modernwpf.com/2019"
       mc:Ignorable="d"
       Foreground="{DynamicResource SystemControlPageTextBaseHighBrush}"
-      d:DesignHeight="430" d:DesignWidth="600"
-      Title="Welcome">
+      d:DesignHeight="410" d:DesignWidth="580"
+      Title="Welcome" Loaded="AddLicenseToTextBlock">
     <Grid>
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock FontFamily="{StaticResource GentiumBasicBold}" Text="CTGP Revolution" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="60"/>
-            <TextBlock Text="Different." HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
-        </StackPanel>
+        <DockPanel>
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+                <TextBlock Text="License terms" Style="{StaticResource TitleTextBlockStyle}"/>
+                <TextBlock Text="This license pertains only to this tool, and not to CTGP Revolution and its authors." Style="{StaticResource CaptionTextBlockStyle}"/>
+            </StackPanel>
+            <CheckBox x:Name="CbxAcceptLicense" Content="I accept the license terms" DockPanel.Dock="Bottom" Click="CbxAcceptLicense_Click"/>
+            <ScrollViewer Margin="0,10,0,10">
+                <TextBlock x:Name="TbxLicense" TextWrapping="Wrap" DockPanel.Dock="Top" FontFamily="Consolas"
+                           ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            </ScrollViewer>
+        </DockPanel>
     </Grid>
 </Page>

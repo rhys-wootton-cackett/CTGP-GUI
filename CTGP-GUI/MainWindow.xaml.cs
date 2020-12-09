@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CTGP_GUI.Classes;
+using CTGP_GUI.Pages;
 
 namespace CTGP_GUI
 {
@@ -21,6 +23,8 @@ namespace CTGP_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly Questionnaire _questionnaire = new Questionnaire();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,10 +33,14 @@ namespace CTGP_GUI
         private void BtnForward_Click(object sender, RoutedEventArgs e)
         {
             // Navigate to the specific page dependent on answers.
-            FrmMain.Source = FrmMain.Content.GetType().Name switch
+            switch (FrmMain.Content.GetType().Name)
             {
-                "Welcome" => new Uri("Pages/LicenseAgreement.xaml", UriKind.Relative),
-                _ => FrmMain.Source
+                case "Welcome":
+                    FrmMain.Navigate(new LicenseAgreement(_questionnaire));
+                    break;
+                case "LicenseAgreement":
+                    if (_questionnaire.LicenseAccepted) FrmMain.Navigate(new Pages.Console(_questionnaire));
+                    break;
             };
 
             // If the page is the Install page, hide buttons.
